@@ -8,12 +8,43 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var selection: String?
+    @State var selection1: String?
+    @State var selection2: String?
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            VStack {
+                Button("Testing") {
+                    //
+                }
+                
+                DropDownPickerView(
+                    hint: "Selection",
+                    options: [
+                        "YouTube",
+                        "Instagram",
+                        "TikTok",
+                        "Netflix",
+                        "Amazon Prime"
+                    ],
+                    anchor: .bottom,
+                    selection: $selection)
+                
+                DropDownPickerView(
+                    hint: "Selection",
+                    options: [
+                        "Short Form",
+                        "Long Form",
+                        "Both"
+                    ],
+                    anchor: .top,
+                    selection: $selection1)
+                
+                Button("Testing") {
+                    //
+                }
+            }
         }
         .padding()
     }
